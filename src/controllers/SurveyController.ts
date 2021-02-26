@@ -8,9 +8,7 @@ class SurveysController {
 		const { title, description } = request.body
 
 		const surveysRepository = getCustomRepository(SurveysRepository)
-
 		const survey = surveysRepository.create({ title, description })
-
 		await surveysRepository.save(survey)
 
 		return response.status(201).json(survey)
@@ -18,7 +16,6 @@ class SurveysController {
 
 	async show(request: Request, response: Response) {
 		const surveysRepository = getCustomRepository(SurveysRepository)
-
 		const all = await surveysRepository.find()
 
 		return response.json(all)
